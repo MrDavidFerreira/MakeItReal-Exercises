@@ -6,6 +6,7 @@
 
 function toRoman(number) {
     let roman = "";
+
     // Millares -> M
     if (number > 999) {
         let thousands = Math.floor(number / 1000);
@@ -35,7 +36,7 @@ function toRoman(number) {
                 roman += "D" + "C".repeat(hundreds - 5);
                 break;
             case 9:
-                roman += "CM"
+                roman += "CM";
                 break;
         }
     }
@@ -61,7 +62,7 @@ function toRoman(number) {
                 roman += "L" + "X".repeat(tens - 5);
                 break;
             case 9:
-                roman += "XC"
+                roman += "XC";
                 break;
         }
     }
@@ -83,7 +84,7 @@ function toRoman(number) {
             roman += "V" + "I".repeat(number - 5);
             break;
         case 9:
-            roman += "IX"
+            roman += "IX";
             break;
     }
 
