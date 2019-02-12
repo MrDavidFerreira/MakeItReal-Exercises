@@ -66,3 +66,5 @@ console.log(tictactoe([
     ['', 'X', 'O'],
     ['O', '', 'X']
 ])); // false
+
+// O(n^2) - Exponencial

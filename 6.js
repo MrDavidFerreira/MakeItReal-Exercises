@@ -1,5 +1,12 @@
 /**
+ * Declarar una condición por cada letra de la primera que indique si esa letra se encuentra en la segunda. Si no se encuentra, terminar y devolver falso.
  * 
+ * Recorrer cada letra de la primera palabra
+ *      Compararla con cada letra de la segunda
+ *      Si es igual a alguna letra de la segunda
+ *          Marcar esa letra de la segunda como ya comprobada. No se puede volver a comparar.
+ *          Marcar la letra de la primera como encontrada.
+ *              
  */
 
 function anagram(s1, s2) {
@@ -24,3 +31,5 @@ function anagram(s1, s2) {
 
 console.log(anagram("aaaiaa", "iaaaaa")); // true
 console.log(anagram("hello", "world")); // false
+
+// O(n^2) - Exponencial

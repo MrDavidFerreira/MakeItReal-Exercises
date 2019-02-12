@@ -1,5 +1,8 @@
 /**
  * 
+ * Recorrer cada fila de la matriz
+ *      Crear una cadena anexando el separador |
+ *      Cuando termine cada fila anexar el salto de línea \n
  * 
  */
 
@@ -18,6 +21,8 @@ function printMatrix(matrix) {
 console.log(printMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 
 console.log(printMatrix([[1, 2, 3], [4, 50, 6], [71, 8, 9]]));
+
+// O(n) - Lineal
 
 function printMatrix2(matrix) {
     let result = [];
@@ -59,4 +64,4 @@ console.log(printMatrix2([[1, 2, 3], [4, 50, 6], [71, 8, 9]]));
 //  71 |  8 |  9
 
 
-// O(n^2) - Exponencial}
+// O(n^2) - Exponencial

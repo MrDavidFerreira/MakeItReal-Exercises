@@ -23,6 +23,7 @@ function sort(array) {
                 ordered = false;
             }
         }
+
     } while (!ordered);
 
     return array;
@@ -30,4 +31,4 @@ function sort(array) {
 
 console.log(sort([5, 8, 3, 0, 7])); // [0, 3, 5, 7, 8]
 
-// O(n^2)
+// O(n) - Lineal

@@ -22,7 +22,7 @@ function findLongestWordLength(text) {
     return maxLength;
 };
 
-console.log(findLongestWordLength("The quick brown fox asdfjumped over the lazy dog")); // 6
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6
 
 
 // O(n) - Lineal
