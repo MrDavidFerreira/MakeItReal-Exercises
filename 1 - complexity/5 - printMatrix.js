@@ -24,6 +24,10 @@ console.log(printMatrix([[1, 2, 3], [4, 50, 6], [71, 8, 9]]));
 
 // O(n) - Lineal
 
+/**
+ * Consider the correct padding
+ * @param {Array} matrix 
+ */
 function printMatrix2(matrix) {
     let result = [];
     const size = matrix[0].length;

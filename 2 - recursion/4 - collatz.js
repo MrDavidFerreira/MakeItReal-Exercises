@@ -7,31 +7,31 @@
  * Repeat the process indefinitely. The conjecture states that no matter which number you start with, you will always reach 1 eventually.
  */
 
- /**
-  * 
-  * 19  (impar)
-  *     19 * 3 + 1
-  * 
-  * 
-  */
+/**
+ * 
+ * 19  (impar)
+ *     19 * 3 + 1
+ * 
+ * 
+ */
 
-  function collatz(n) {
-      let aux;
+function collatz(n) {
+    let aux;
 
-      if (n == 1) {
-          return 1;
-      }
+    if (n == 1) {
+        return 1;
+    }
 
-      if ( n % 2 == 0) {
-          aux = n / 2;
-      } else {
-          aux = (3 * n) + 1;
-      }
+    if (n % 2 == 0) {
+        aux = n / 2;
+    } else {
+        aux = (3 * n) + 1;
+    }
 
-      return 1 + collatz(aux);
-  }
+    return 1 + collatz(aux);
+}
 
-  console.log(collatz(12)); // 9
+console.log(collatz(12)); // 9
 console.log(collatz(19)); // 21
 console.log(collatz(27)); // 111
 console.log(collatz(837799)); // 524
