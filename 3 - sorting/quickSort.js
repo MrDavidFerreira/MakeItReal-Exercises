@@ -10,7 +10,7 @@ function quickSort(array) {
     let left = 0; //left most index
     let right = array.length - 1; // right most index
 
-    let direction = "rightToLeft"
+    let rightToLeft = true
     let pivotIndex = 0; //starts with first element
 
     // console.log(array)
@@ -20,14 +20,14 @@ function quickSort(array) {
     // console.log(`*selected = ${array[selectedIndex]}\n`);
     while (right > left) {
 
-        if (direction == "rightToLeft") {
+        if (rightToLeft) {
             if (array[right] < array[pivotIndex]) {
                 let lesser = array[right]
                 array[right] = array[pivotIndex];
                 array[pivotIndex] = lesser;
 
 
-                direction = "leftToRight"
+                rightToLeft = false;
                 left++;
                 pivotIndex = right;
             } else {
@@ -39,7 +39,7 @@ function quickSort(array) {
                 array[left] = array[pivotIndex];
                 array[pivotIndex] = greater;
 
-                direction = "rightToLeft";
+                rightToLeft = true;
                 right--;
                 pivotIndex = left;
             } else {

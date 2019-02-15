@@ -17,10 +17,13 @@
  * @param {Array} array 
  */
 function numberOfBribes(array) {
-    let arr = array.slice();
+    let arr = array.slice(); //Copia del array
 
     let bribes = 0;
 
+    // [0, 1, 2, 3, 4] index
+    // [1, 2, 3, 4, 5] index + 1 (rigth way)
+    // [2, 1, 5, 3, 4]
     for (let i = 0; i < arr.length; i++) { //Recorrer elemento por elemento
         let j = i;
         let swaps = 0; //Contador del número de intercambios 
@@ -49,6 +52,7 @@ function numberOfBribes(array) {
 
 console.log(numberOfBribes([2, 1, 5, 3, 4])); // 3
 console.log(numberOfBribes([2, 5, 1, 3, 4])); // -1
+console.log(numberOfBribes([2, 4, 5, 3, 1])); // 3
 
 
 /*   La función pero con muchos logs
