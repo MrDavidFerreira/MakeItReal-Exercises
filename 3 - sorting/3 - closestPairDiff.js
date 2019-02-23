@@ -14,8 +14,7 @@ function closestPairDiff(array) {
     let smallestDiff = Number.MAX_SAFE_INTEGER;
 
     for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            if (i != j) {
+        for (let j = i + 1; j < array.length; j++) {
                 let diff = Math.abs(array[i] - array[j]);
 
                 if (diff < smallestDiff ) {
@@ -25,8 +24,6 @@ function closestPairDiff(array) {
                 if(smallestDiff == 0 ) {
                     return 0;
                 }
-
-            }
         }
     }
     return smallestDiff;

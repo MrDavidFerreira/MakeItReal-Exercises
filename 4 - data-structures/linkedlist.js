@@ -1,8 +1,8 @@
 class Node {
 
-    constructor(value, next) {
+    constructor(value, link) {
         this.value = value;
-        this.next = next;
+        this.link = link;
     }
 }
 
@@ -15,40 +15,41 @@ class LinkedList {
     }
 
     add(element) {
-        if (this.lastNode == null) {
-            this.firstNode = this.lastNode = new Node(element, null);
+        let newNode = new Node(element, null);
+        if (!this.lastNode) { //or firstNode
+            this.firstNode = newNode;
         } else {
-            let newNode = new Node(element, null);
-            if (this.size == 1) {
-                this.firstNode.next = this.lastNode = newNode;
-            } else {
-                this.lastNode.next = newNode;
-            }
-            this.lastNode = newNode; //update the lastNode reference
+            this.lastNode.link = newNode;
+
         }
+        this.lastNode = newNode; //update the lastNode reference
         this.size++;
     };
 
-    addAt(pos, element) {
-        if (pos < this.size) {
+    addAt(pos, value) {
+        if (pos === 0) {
+            let aux = this.firstNode;
+            this.firstNode = new Node(value, aux);
+            this.size++;
+        } else if (pos < this.size) {
             let node = this.firstNode; //starts from first node
 
             for (let i = 0; i < pos - 1; i++) {
-                node = node.next; //nodo anterior a 
+                node = node.link; //nodo anterior a 
             }
 
-            let next = node.next; //save temporary next node (posicion)
+            let next = node.link; //save temporary next node (posicion)
 
-            node.next = new Node(element, next);  //reasign the node to the new node with saved next node
+            node.link = new Node(value, next);  //reasign the node to the new node with saved next node
 
-            //update the lastNode reference
-            while(node.next != null) {
-                node = node.next;
-                this.lastNode = node;
-            }
+            // //update the lastNode reference
+            // while (node.link != null) {
+            //     node = node.link;
+            //     this.lastNode = node;
+            // }
             this.size++;
         } else {
-            this.add(element);
+            this.add(value);
         }
     };
 
@@ -57,7 +58,7 @@ class LinkedList {
             let node = this.firstNode; //starts from first node
 
             for (let i = 0; i < pos; i++) {
-                node = node.next;
+                node = node.link;
             }
 
             return node.value;
@@ -68,18 +69,18 @@ class LinkedList {
 
     removeAt(pos) {
         if (pos == 0) {
-            this.firstNode = this.firstNode.next;
+            this.firstNode = this.firstNode.link;
             this.size--;
         } else if (pos > 0 && pos < this.size) {
             let node = this.firstNode; //starts from first node
-            let next = node.next;
+            let next = node.link;
 
             for (let i = 0; i < pos - 1; i++) {
-                node = node.next;
-                next = node.next;
+                node = node.link;
+                next = node.link;
             }
 
-            node.next = next.next;
+            node.link = next.link;
             this.size--;
         }
     };
@@ -89,18 +90,18 @@ class LinkedList {
 
         for (let i = 0; i < this.size; i++) {
             action(node.value, i);
-            node = node.next;
+            node = node.link;
         }
     };
 
     reverse() {
 
         let reverseHelper = function (node) {
-            if (node.next == null) {
+            if (node.link == null) {
                 return node;
             } else {
-                let nodeTemp = reverseHelper(node.next);
-                nodeTemp.next = node;
+                let nodeTemp = reverseHelper(node.link);
+                nodeTemp.link = node;
                 return node;
             }
         }
@@ -112,14 +113,13 @@ class LinkedList {
             this.firstNode = this.lastNode;
             this.lastNode = temp;
             //lastNode's (formerly firstNode) next, must point to null
-            this.lastNode.next = null;
+            this.lastNode.link = null;
         }
     }
 
     middle() {
         return valueAt(Math.floor(this.size / 2));
     }
-
 }
 
 const list = new LinkedList();
@@ -127,7 +127,9 @@ list.add('a');
 list.add('b');
 list.add('d');
 list.addAt(2, 'c');
-// list.addAt(4, 'f');
+list.addAt(4, 'f');
+
+console.log(list.lastNode)
 // console.log(list.valueAt(0)); // 'a'
 list.forEach((val, i) => {
     console.log(`Value at position ${i}: ${val}`);
@@ -143,8 +145,3 @@ list.reverse();
 list.forEach((val, i) => {
     console.log(`Value at position ${i}: ${val}`);
 });
-
-
-console.log(Math.floor(2.4))
-
-
